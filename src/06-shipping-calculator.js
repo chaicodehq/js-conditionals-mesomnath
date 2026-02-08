@@ -30,4 +30,17 @@
  */
 export function calculateShipping(weight, country, orderTotal) {
   // Your code here
+  let isInternational = true;
+  if (weight <= 0 || orderTotal <=0)
+    return -1;
+  if(country == "US")
+    isInternational = false;
+  if((isInternational && orderTotal > 100)||(!isInternational && orderTotal > 50))
+    return 0;
+  if(weight <= 1)
+    return isInternational ? 15 : 5;
+  if(weight <= 5)
+    return isInternational ? 25 : 10;
+  if(weight > 5)
+    return isInternational ? 40 : 15;
 }
