@@ -27,4 +27,9 @@
  */
 export function checkPasswordStrength(password) {
   // Your code here
+  if(typeof(password)!=String || password.length <= 0){
+    return "weak";
+  }
+  
+
 }
